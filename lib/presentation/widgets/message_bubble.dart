@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:toxica_2/presentation/widgets/image_bubble.dart';
 
 class MessageBubble extends StatelessWidget {
   final CrossAxisAlignment alignment;
   final Color colorBubble;
   final Widget child;
+  final String? urlImageBubble;
   const MessageBubble(
       {super.key,
       required this.alignment,
       required this.colorBubble,
-      required this.child});
+      required this.child,
+      this.urlImageBubble});
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +29,14 @@ class MessageBubble extends StatelessWidget {
           ),
         ),
         const SizedBox(
-          height: 10,
-        )
+          height: 5,
+        ),
+        if (urlImageBubble != null) ...[
+          ImageBubble(urlImageBubble: urlImageBubble!),
+          const SizedBox(
+            height: 10,
+          ),
+        ]
       ],
     );
   }

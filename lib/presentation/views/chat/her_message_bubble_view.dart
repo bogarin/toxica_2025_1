@@ -12,6 +12,8 @@ class HerMessageBubbleView extends StatelessWidget {
     return MessageBubble(
       alignment: CrossAxisAlignment.start,
       colorBubble: colors.secondary,
+      urlImageBubble:
+          'https://yesno.wtf/assets/no/8-5e08abbe5aacd2cf531948145b787e9a.gif',
       child: Text(
         msg,
         style: TextStyle(color: colors.onSecondary),

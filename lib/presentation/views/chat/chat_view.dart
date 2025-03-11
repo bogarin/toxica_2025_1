@@ -15,13 +15,12 @@ class ChatView extends StatelessWidget {
           children: [
             Expanded(
               child: ListView.builder(
-                  itemCount: 30,
+                  itemCount: 2,
                   itemBuilder: (context, index) {
                     return index % 2 == 0
                         ? MyMessageBubbleView(
-                            colors: colors, msg: 'Jose Ramon Bogarin')
-                        : HerMessageBubbleView(
-                            colors: colors, msg: 'Your message here');
+                            colors: colors, msg: 'vamos por tacos?')
+                        : HerMessageBubbleView(colors: colors, msg: 'No');
                   }),
             ),
             const Text('hola')
