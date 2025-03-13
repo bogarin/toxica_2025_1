@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:toxica_2/presentation/views/chat/her_message_bubble_view.dart';
 import 'package:toxica_2/presentation/views/chat/my_message_bubble_view.dart';
+import 'package:toxica_2/presentation/widgets/message_field_box.dart';
 
 class ChatView extends StatelessWidget {
   const ChatView({super.key});
@@ -23,7 +24,7 @@ class ChatView extends StatelessWidget {
                         : HerMessageBubbleView(colors: colors, msg: 'No');
                   }),
             ),
-            const Text('hola')
+            const MessageFieldBox()
           ],
         ),
       ),
