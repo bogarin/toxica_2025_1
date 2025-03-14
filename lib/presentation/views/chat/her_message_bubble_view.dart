@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:toxica_2/domain/entities/message.dart';
 import 'package:toxica_2/presentation/widgets/message_bubble.dart';
 
 class HerMessageBubbleView extends StatelessWidget {
   final ColorScheme colors;
-  final String msg;
+  final Message msg;
   const HerMessageBubbleView(
       {super.key, required this.colors, required this.msg});
 
@@ -12,10 +13,9 @@ class HerMessageBubbleView extends StatelessWidget {
     return MessageBubble(
       alignment: CrossAxisAlignment.start,
       colorBubble: colors.secondary,
-      urlImageBubble:
-          'https://yesno.wtf/assets/no/8-5e08abbe5aacd2cf531948145b787e9a.gif',
+      urlImageBubble: msg.imageUrl,
       child: Text(
-        msg,
+        msg.text,
         style: TextStyle(color: colors.onSecondary),
       ),
     );

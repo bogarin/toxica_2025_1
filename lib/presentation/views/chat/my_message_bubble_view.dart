@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:toxica_2/domain/entities/message.dart';
 import 'package:toxica_2/presentation/widgets/message_bubble.dart';
 
 class MyMessageBubbleView extends StatelessWidget {
   final ColorScheme colors;
-  final String msg;
+  final Message msg;
   const MyMessageBubbleView(
       {super.key, required this.colors, required this.msg});
 
@@ -13,7 +14,7 @@ class MyMessageBubbleView extends StatelessWidget {
       alignment: CrossAxisAlignment.end,
       colorBubble: colors.primary,
       child: Text(
-        msg,
+        msg.text,
         style: TextStyle(color: colors.onPrimary),
       ),
     );
