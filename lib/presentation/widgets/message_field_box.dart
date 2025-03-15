@@ -1,13 +1,25 @@
 import 'package:flutter/material.dart';
 
-class MessageFieldBox extends StatelessWidget {
+class MessageFieldBox extends StatefulWidget {
   final void Function(String) onValue;
   const MessageFieldBox({super.key, required this.onValue});
 
   @override
+  State<MessageFieldBox> createState() => _MessageFieldBoxState();
+}
+
+class _MessageFieldBoxState extends State<MessageFieldBox> {
+  final TextEditingController textController = TextEditingController();
+  final focusNode = FocusNode();
+  @override
+  void dispose() {
+    textController.dispose();
+    focusNode.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final TextEditingController textController = TextEditingController();
-    final focusNode = FocusNode();
     final colors = Theme.of(context).colorScheme;
 
     return TextFormField(
@@ -18,15 +30,16 @@ class MessageFieldBox extends StatelessWidget {
             onPressed: () {
               final textValue = textController.value.text;
               if (textValue.isNotEmpty) {
-                onValue(textValue);
+                widget.onValue(textValue);
                 textController.clear();
+                focusNode.requestFocus();
               }
             }),
         onTapOutside: (event) {
           focusNode.unfocus();
         },
         onFieldSubmitted: (value) {
-          onValue(value);
+          widget.onValue(value);
           textController.clear();
           focusNode.requestFocus();
         });

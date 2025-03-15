@@ -20,6 +20,7 @@ class ChatView extends StatelessWidget {
           children: [
             Expanded(
               child: ListView.builder(
+                  controller: chatProvider.scrollController,
                   itemCount: chatProvider.messagesList.length,
                   itemBuilder: (context, index) {
                     return chatProvider.messagesList[index].fromWho ==
